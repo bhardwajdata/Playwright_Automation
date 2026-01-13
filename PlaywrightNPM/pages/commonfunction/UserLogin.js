@@ -1,6 +1,6 @@
 const ConfigReader = require("../base/configreader");
 const Base = require("../base/Baseclass");
-const Locator = require("../commonfuntion/locator");
+const Locator = require("./locator");
 const { expect } = require('@playwright/test');
 
 class UserLogin {

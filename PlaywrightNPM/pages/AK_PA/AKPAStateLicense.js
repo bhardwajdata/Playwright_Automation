@@ -1,7 +1,7 @@
 const Base = require("../base/Baseclass");
-const UserLogin = require("../commonfuntion/UserLogin");
+const UserLogin = require("../commonfunction/UserLogin");
 const ConfigReader = require("../base/configreader");
-const Locator = require("../commonfuntion/locator");
+const Locator = require("../commonfunction/locator");
 const { expect } = require('@playwright/test');
 
 class AKPAStateLicense extends Base {

@@ -38,7 +38,7 @@ export default defineConfig({
     screenshot: 'on',
     video: 'retain-on-failure',
 
-    reporter: 'html',
+    /* reporter: 'html',  */
     // reporter: [["list"], ["html", { outputFolder: "reports" }]],
   },
 
