@@ -38,19 +38,21 @@ export default defineConfig({
     screenshot: 'on',
     video: 'retain-on-failure',
 
-    /* reporter: 'html',  */
+    // reporter: 'html',
     // reporter: [["list"], ["html", { outputFolder: "reports" }]],
   },
 
    reporter: [
-    ["line"],
-    [
-      "allure-playwright",
-      {
-        resultsDir: "allure-results",
-      },
-    ],
+  [
+    "allure-playwright",
+    {
+      resultsDir: "allure-results",
+      stdout: false,
+      stderr: false,
+      detail: false,
+    }
   ],
+],
 
   /* Configure projects for major browsers */
   projects: [
