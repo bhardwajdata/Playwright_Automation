@@ -41,16 +41,13 @@ Easy scalability for adding new modules and test cases
 🛠️ Installation
 Initialize the repository:
 create a folder and open gitbash 
-git init 
+git init or git init < Repo Link >
 
 Clone the repository:
-git clone https://github.com/<your-username>/<your-reponame>.git
+git clone < Repo Link >
 
-Install dependencies:
-npm install
-
-Install Playwright browsers:
-npx playwright install
+Install playwright:
+npm init playwright@latest
 
 ▶️ Running Tests
 
@@ -61,7 +58,10 @@ Run all tests:
 npx playwright test
 
 Run tests using the runner file:
-npx playwright test tests/runner.spec.js
+npx playwright test runner.spec.js
+
+Use Codegen for Auto Test Generation
+npx playwright codegen
 
 ⚙️ GitHub Actions CI
 
