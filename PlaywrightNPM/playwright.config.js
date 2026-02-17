@@ -1,6 +1,8 @@
 // @ts-check
 import { defineConfig, devices } from '@playwright/test';
 
+const isCI = !!process.env.CI;
+
 /**
  * Read environment variables from file.
  * https://github.com/motdotla/dotenv
@@ -15,66 +17,50 @@ import { defineConfig, devices } from '@playwright/test';
 export default defineConfig({
   testDir: './tests',
   /* Run tests in files in parallel */
-  timeout: 120000,
-  fullyParallel: false,
+  timeout: 90000,
+  fullyParallel: true,      // retry failed tests on CI
+  // workers: 3, 
+  workers: process.env.CI ? 3: 4,
   /* Fail the build on CI if you accidentally left test.only in the source code. */
   forbidOnly: !!process.env.CI,
   /* Retry on CI only */
   retries: process.env.CI ? 2 : 0,
-  /* Opt out of parallel tests on CI. */
-  workers: process.env.CI ? 1 : undefined,
-  /* Reporter to use. See https://playwright.dev/docs/test-reporters */
-  // reporter: 'html',
-
-  /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
+ 
   use: {
-    /* Base URL to use in actions like `await page.goto('/')`. */
     // baseURL: 'http://localhost:3000',
-
-    /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
-
+    // headless: isCI ? true : false,        // headless in CI, GUI locally
     headless: true,
-    trace: 'on-first-retry',
-    screenshot: 'on',
-    video: 'retain-on-failure',
-
-    // reporter: 'html',
-    // reporter: [["list"], ["html", { outputFolder: "reports" }]],
+    viewport: { width: 1280, height: 720 },
+    trace: 'on-first-retry',              
+    screenshot: 'only-on-failure',        
+    video: 'retain-on-failure',         
+    ignoreHTTPSErrors: true,  
   },
 
-   reporter: [
-  [
-    "allure-playwright",
-    {
-      resultsDir: "allure-results",
-      stdout: false,
-      stderr: false,
-      detail: false,
-    }
+  reporter: [
+    ['list'],
+    ['html', { outputFolder: 'Test-Reports', open: 'never' }],
   ],
-],
 
   /* Configure projects for major browsers */
   projects: [
     {
-      name: 'chromium',
-      use: { ...devices['Desktop Chrome'],
-        launchOptions: {
-          args: ["--start-fullscreen"], // starting the browser in full screen
-          // slowMo: 1000, // a 1000 milliseconds pause before each operation. Useful for slow systems.
-        },
-       },
-    },
-
-   /* {
-      name: 'firefox',
-      use: { ...devices['Desktop Firefox'] },
-    },
-
-    {
-      name: 'webkit',
-      use: { ...devices['Desktop Safari'] },
-    }, */
+    name: 'chromium',
+    use: { browserName: 'chromium' },
+    grep: /@chromium/,
+  },
+  
+  {
+    name: 'firefox',
+    use: { browserName: 'firefox' },
+    grep: /@firefox/,
+  },
+  
+  {
+    name: 'webkit',
+    use: { browserName: 'webkit' },
+    grep: /@webkit/,
+  },
 
     /* Test against mobile viewports. */
     // {
