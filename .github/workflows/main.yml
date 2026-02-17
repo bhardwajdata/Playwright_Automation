@@ -37,6 +37,4 @@ jobs:
           path: PlaywrightNPM/playwright-report/   
           retention-days: 30
         
-      - name: Deploy Playwright report
-        run: npx gh-pages -d playwright-report
   
