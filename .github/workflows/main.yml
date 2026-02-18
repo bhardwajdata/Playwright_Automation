@@ -66,9 +66,12 @@ jobs:
           path: PlaywrightNPM/all-blob-reports
 
       - name: Merge reports
-        run: npx playwright merge-reports --reporter html ./all-blob-reports
+        run: |
+          mkdir merged-blobs
+          find all-blob-reports -name "*.zip" -exec cp {} merged-blobs \;
+          npx playwright merge-reports --reporter html ./merged-blobs
         working-directory: PlaywrightNPM
-
+  
       - name: Deploy merged report to GitHub Pages
         uses: peaceiris/actions-gh-pages@v4
         with:
