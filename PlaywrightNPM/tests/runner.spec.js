@@ -9,3 +9,12 @@
 import '../tests/RegressionTest/Hub.spec.js';
 import '../tests/RegressionTest/baba.spec.js';
 import '../tests/RegressionTest/QA.spec.js';
+
+import '../tests/RegressionTest/A.spec.js';
+import '../tests/RegressionTest/B.spec.js';
+import '../tests/RegressionTest/C.spec.js';
+import '../tests/RegressionTest/D.spec.js';
+import '../tests/RegressionTest/E.spec.js';
+import '../tests/RegressionTest/F.spec.js';
+import '../tests/RegressionTest/G.spec.js';
+import '../tests/RegressionTest/H.spec.js';
