@@ -6,7 +6,7 @@
 // In workflow file, we have to install only chromium browser to reduce the execution time. If we install all browsers, it will take more time. If we want to test in all browsers, we can install all browsers. 
 // We have also scheduled the workflow to run every hour to check the execution time and results in chromium.
 // To upload the report to GitHub Pages, we have to allow workflow permissions in the repository settings. We have to give write permission to the workflow to upload the report to GitHub Pages.
-// 
+// We need two jobs first one to execute all the test with shard and the second one to merge all reports and upload on github. Url link can be found in workflow run summary after the workflow is executed successfully.
 
 import '../tests/RegressionTest/Hub.spec.js';
 import '../tests/RegressionTest/baba.spec.js';
