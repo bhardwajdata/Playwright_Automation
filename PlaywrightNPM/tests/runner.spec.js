@@ -19,4 +19,4 @@ import '../tests/RegressionTest/D.spec.js';
 import '../tests/RegressionTest/E.spec.js';
 import '../tests/RegressionTest/F.spec.js';
 import '../tests/RegressionTest/G.spec.js';
-// import '../tests/RegressionTest/H.spec.js';
+import '../tests/RegressionTest/H.spec.js';
