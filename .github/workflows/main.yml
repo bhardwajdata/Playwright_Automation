@@ -3,7 +3,7 @@ name: Playwright Tests with Github Actions
 on:
   workflow_dispatch: {}
   schedule:       
-    - cron: '*/15 * * * *'  
+    - cron: '0 2 * * *'  # Runs every day at 7:30 AM ITC  
 
 jobs:
   test:
@@ -36,5 +36,7 @@ jobs:
           name: playwright-report
           path: PlaywrightNPM/playwright-report/   
           retention-days: 30
+
+    
         
   
