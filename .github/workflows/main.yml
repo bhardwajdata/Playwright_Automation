@@ -1,50 +1,56 @@
-name: Playwright Tests with Github Actions
+name: Playwright Tests with GitHub Actions
 
 on:
   workflow_dispatch: {}
   schedule:
-    - cron: '0 2 * * *'
+    - cron: '0 2 * * *'  # runs every day at 7:30 AM IST
 
 permissions:
-  contents: write
+  contents: write  # required for gh-pages deployment
 
 jobs:
+  # 🔹 1️⃣ Run Sharded Playwright Tests
   e2e:
     runs-on: ubuntu-latest
     timeout-minutes: 60
     strategy:
       matrix:
-        shard: [1,2,3]
+        shard: [1,2,3]  # number of shards
 
     steps:
+      # Checkout repository
       - uses: actions/checkout@v4
 
+      # Setup Node.js
       - uses: actions/setup-node@v4
         with:
           node-version: lts/*
           cache: 'npm'
           cache-dependency-path: PlaywrightNPM/package-lock.json
 
+      # Install dependencies
       - name: Install dependencies
         run: npm ci
         working-directory: PlaywrightNPM
 
+      # Install Playwright browsers
       - name: Install Playwright Browsers
         run: npx playwright install chromium
         working-directory: PlaywrightNPM
 
-      # 🔥 IMPORTANT: use blob reporter instead of html
-      - name: Run Playwright tests (Shard)
+      # Run tests (shard) and generate blob report
+      - name: Run Playwright Tests (Shard ${{ matrix.shard }})
         run: npx playwright test runner*.spec.js --shard=${{ matrix.shard }}/3 --reporter=blob
         working-directory: PlaywrightNPM
 
-      - name: Upload blob report
+      # Upload shard blob report
+      - name: Upload Blob Report
         uses: actions/upload-artifact@v4
         with:
           name: blob-report-${{ matrix.shard }}
           path: PlaywrightNPM/blob-report
 
-  # 🔹 2️⃣ MERGE + DEPLOY JOB (runs ONCE)
+  # 🔹 2️⃣ Merge Shard Reports & Deploy
   merge-and-deploy:
     needs: e2e
     runs-on: ubuntu-latest
@@ -60,21 +66,28 @@ jobs:
         run: npm ci
         working-directory: PlaywrightNPM
 
-      - name: Download all blob reports
+      # Download all shard reports
+      - name: Download All Shard Reports
         uses: actions/download-artifact@v4
         with:
           path: PlaywrightNPM/all-blob-reports
 
-      - name: Merge reports
+      # Flatten all blob reports into a single folder for merging
+      - name: Flatten Blob Reports
         run: |
-          mkdir merged-blobs
-          find all-blob-reports -name "*.zip" -exec cp {} merged-blobs \;
-          npx playwright merge-reports --reporter html ./merged-blobs
+          mkdir -p PlaywrightNPM/merged-blobs
+          find PlaywrightNPM/all-blob-reports -name "*.zip" -exec cp {} PlaywrightNPM/merged-blobs \;
+
+      # Merge blob reports into one HTML report
+      - name: Merge Reports
+        run: npx playwright merge-reports --reporter html ./merged-blobs
         working-directory: PlaywrightNPM
-  
-      - name: Deploy merged report to GitHub Pages
+
+      # Deploy the merged report to GitHub Pages
+      - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: PlaywrightNPM/playwright-report
-          destination_dir: playwright-report
+          destination_dir: playwright-report  # ensures stable URL
+
