@@ -1,8 +1,8 @@
 import { test, expect } from "@playwright/test";
 
-test.describe("Hub Functionality in Firefox", () => {
+test.describe("Hub Functionality", () => {
 
-test("@chromium should display relevant results when searching for a product", async ({ page }) => {
+test("Should display relevant results when searching for a product", async ({ page }) => {
         
   await page.goto('https://www.wikipedia.org/');
   await page.getByRole('link', { name: 'English 7,125,000+ articles' }).click();

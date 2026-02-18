@@ -1,8 +1,8 @@
 import { test, expect } from "@playwright/test";
 
-test.describe("TestingBaba Search Functionality in Firefox", () => {
+test.describe("TestingBaba Search Functionality", () => {
 
-test("@chromium should display relevant results when searching for a product", async ({ page }) => {
+test("Should display relevant results when searching for a product", async ({ page }) => {
 
   await page.goto('https://testingbaba.com/');
   console.log("✅ TestingBaba homepage loaded!");

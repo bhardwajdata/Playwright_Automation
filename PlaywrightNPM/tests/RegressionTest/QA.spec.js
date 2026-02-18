@@ -1,8 +1,8 @@
 import { test,expect } from "@playwright/test";
 
-test.describe("QA Search Functionality in chrome", () => {
+test.describe("QA Search Functionality", () => {
 
-test("@chromium should display relevant results when searching for a product", async ({ page }) => {
+test("Should display relevant results when searching for a product", async ({ page }) => {
 
   await page.goto('https://demoqa.com/');
   await page.locator('div').filter({ hasText: /^Elements$/ }).nth(1).click();

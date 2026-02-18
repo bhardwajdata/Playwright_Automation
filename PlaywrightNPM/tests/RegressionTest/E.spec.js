@@ -1,7 +1,7 @@
 import {test, expect} from '@playwright/test';
 
 test.describe('Test Suite E', () => {
-    test('@chromium Test Case E1', async ({ page }) => {
+    test('Test Case E1', async ({ page }) => {
         await page.goto('https://www.wikipedia.org');
         const title = await page.title();
         expect(title).toBe('Wikipedia');
