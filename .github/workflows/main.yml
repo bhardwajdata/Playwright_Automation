@@ -89,5 +89,5 @@ jobs:
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: PlaywrightNPM/playwright-report
-          destination_dir: playwright-report  # ensures stable URL
+          
 
