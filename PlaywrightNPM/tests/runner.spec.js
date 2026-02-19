@@ -7,6 +7,10 @@
 // We have also scheduled the workflow to run every hour to check the execution time and results in chromium.
 // To upload the report to GitHub Pages, we have to allow workflow permissions in the repository settings. We have to give write permission to the workflow to upload the report to GitHub Pages.
 // We need two jobs first one to execute all the test with shard and the second one to merge all reports and upload on github. Url link can be found in workflow run summary after the workflow is executed successfully.
+// npx playwright test *testclass --headed --debug (to run the tests in headed mode and debug mode)
+// npx playwright codegen 
+
+
 
 import '../tests/RegressionTest/Hub.spec.js';
 import '../tests/RegressionTest/baba.spec.js';

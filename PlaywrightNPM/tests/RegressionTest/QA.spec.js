@@ -1,10 +1,12 @@
 import { test,expect } from "@playwright/test";
+import { urls } from '../../pages/commonfunction/url.js';
+
+const baseurl = urls.QaUrl;
 
 test.describe("QA Search Functionality", () => {
-
 test("Should display relevant results when searching for a product", async ({ page }) => {
 
-  await page.goto('https://demoqa.com/');
+  await page.goto(baseurl);
   await page.locator('div').filter({ hasText: /^Elements$/ }).nth(1).click();
   console.log("✅ DemoQA homepage loaded!");
   await page.getByText('Radio Button').click();

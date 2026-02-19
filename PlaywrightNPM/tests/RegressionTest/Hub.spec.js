@@ -1,10 +1,11 @@
 import { test, expect } from "@playwright/test";
+import { urls } from '../../pages/commonfunction/url.js';
 
+const baseurl = urls.HubUrl;
 test.describe("Hub Functionality", () => {
-
 test("Should display relevant results when searching for a product", async ({ page }) => {
         
-  await page.goto('https://www.wikipedia.org/');
+  await page.goto(baseurl);
   await page.getByRole('link', { name: 'English 7,125,000+ articles' }).click();
   console.log("✅ Wikipedia homepage loaded and English language selected!");
   await page.getByRole('radio', { name: 'Small' }).check();

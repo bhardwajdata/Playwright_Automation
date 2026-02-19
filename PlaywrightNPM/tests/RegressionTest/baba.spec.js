@@ -1,10 +1,12 @@
 import { test, expect } from "@playwright/test";
+import { urls } from '../../pages/commonfunction/url.js';
+
+const baseurl = urls.BabaUrl;
 
 test.describe("TestingBaba Search Functionality", () => {
-
 test("Should display relevant results when searching for a product", async ({ page }) => {
 
-  await page.goto('https://testingbaba.com/');
+  await page.goto(baseurl);
   console.log("✅ TestingBaba homepage loaded!");
   await page.getByRole('link', { name: 'Career' }).click();
   console.log("✅ Navigated to Career section!");
