@@ -50,7 +50,7 @@ jobs:
 
   merge-and-deploy:
     needs: e2e
-    if: always()  
+    if: always() 
     runs-on: ubuntu-latest
 
     steps:
@@ -81,7 +81,6 @@ jobs:
         working-directory: PlaywrightNPM
 
       - name: Deploy to GitHub Pages
-        if: always()
         uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
@@ -111,3 +110,7 @@ jobs:
             CI/CD Automation
           to: ${{ secrets.Mail_Username }}
           from: ${{ secrets.EMAIL_USER }}
+
+      - name: Fail workflow if tests failed
+        if: needs.e2e.result == 'failure'
+        run: exit 1
