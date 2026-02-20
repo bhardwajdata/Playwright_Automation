@@ -105,5 +105,5 @@ jobs:
             Regards,
             CI/CD Automation
           
-          to: ${{ secrets.EMAIL_USER }} 
+          to: ${{ secrets.Mail_Username }} 
           from: ${{ secrets.EMAIL_USER }}
