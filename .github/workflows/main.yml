@@ -104,5 +104,5 @@ jobs:
 
             Regards,
             CI/CD Automation
-          to: team@example.com
+          
           from: ${{ secrets.EMAIL_USER }}
