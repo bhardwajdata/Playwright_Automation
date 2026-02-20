@@ -1,9 +1,9 @@
-name: Playwright Tests with GitHub Actions
+name: Automation Tests Reports with GitHub Actions
 
 on:
   workflow_dispatch: {}
   schedule:
-    - cron: '0 2 * * *'  # runs every day at 7:30 AM IST
+    - cron: '0 2 * * *' 
 
 permissions:
   contents: write
@@ -74,7 +74,6 @@ jobs:
         run: npx playwright merge-reports --reporter html ./merged-blobs
         working-directory: PlaywrightNPM
 
-      # ✅ Deploy to GitHub Pages in unique build folder
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v4
         with:
@@ -83,7 +82,6 @@ jobs:
           publish_branch: gh-pages
           destination_dir: build-${{ github.run_number }}
 
-      # ✅ Send Email with Report Link
       - name: Send Playwright report via email
         uses: dawidd6/action-send-mail@v3
         with:
