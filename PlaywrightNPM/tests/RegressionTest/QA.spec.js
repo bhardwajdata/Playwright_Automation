@@ -21,7 +21,7 @@ test("Should display relevant results when searching for a product", async ({ pa
   await expect(page.getByRole('paragraph')).toContainText('You have selected Yes');
   await page.getByText('Text Box').click();
   console.log("✅ Navigated to Text Box section!");
-  await expect(page.locator('#userName-label')).toContainText('Full Name');
+  await expect(page.locator('#userName-label')).toContainText('Full Names');
   console.log("✅ Full Name label is visible!");
 
     });
