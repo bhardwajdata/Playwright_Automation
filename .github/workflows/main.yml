@@ -106,7 +106,7 @@ jobs:
             Triggered by: ${{ github.event_name }}
 
             Regards,
-            CI/CD Automation
+            CI/CD Automation Bot
           to: ${{ secrets.Mail_Username }}
           from: ${{ secrets.EMAIL_USER }}
 
