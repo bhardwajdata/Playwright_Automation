@@ -86,7 +86,6 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: PlaywrightNPM/playwright-report
           publish_branch: gh-pages
-          destination_dir: build-${{ github.run_number }}
 
       - name: Send Playwright report via email
         uses: dawidd6/action-send-mail@v3

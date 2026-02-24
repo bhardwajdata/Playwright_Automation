@@ -5,7 +5,7 @@ export const urls = {
     DUrl: 'https://www.duckduckgo.com',
     EUrl: 'https://www.wikipedia.org',
     FUrl: 'https://www.chromium.org/chromium-projects/',
-    GUrl: 'https://webkit.org/',
+    GUrl: 'https://playwright.dev/',
     HUrl: 'https://www.opera.com/',
     BabaUrl: 'https://testingbaba.com/',
     HubUrl: 'https://www.wikipedia.org/',
