@@ -88,6 +88,9 @@ jobs:
           publish_branch: gh-pages
           force_orphan: true
 
+      - name: Wait for GitHub Pages to update
+        run: sleep 60    
+
       - name: Send Playwright report via email
         uses: dawidd6/action-send-mail@v3
         with:
