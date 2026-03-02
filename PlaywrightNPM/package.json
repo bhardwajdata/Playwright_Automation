@@ -13,5 +13,8 @@
     "@types/node": "^24.3.0",
     "allure-commandline": "^2.36.0",
     "allure-playwright": "^3.3.3"
+  },
+  "dependencies": {
+    "play-sound": "^1.1.6"
   }
 }

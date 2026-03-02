@@ -23,8 +23,8 @@ class UserLogin {
   }
 
   async DOlogin() {
-    const username = ConfigReader.getDoUsername(Base.env);   
-    const password = ConfigReader.getDoPassword(Base.env);  
+    const username = ConfigReader.getDoUsername(Base.env);
+    const password = ConfigReader.getDoPassword(Base.env);
 
     await this.usernameField.fill(username);
     console.log("✅ DOUsername entered!");
@@ -35,9 +35,9 @@ class UserLogin {
   }
 
   async PAlogin() {
-    const username = ConfigReader.getPaUsername(Base.env);   
-    const password = ConfigReader.getPaPassword(Base.env);  
-    
+    const username = ConfigReader.getPaUsername(Base.env);
+    const password = ConfigReader.getPaPassword(Base.env);
+
     await this.usernameField.fill(username);
     console.log("✅ PAUsername entered!");
     await this.passwordField.fill(password);
@@ -65,7 +65,7 @@ class UserLogin {
 
     await this.page.waitForTimeout(5000);
     console.log("✅ License removed!");
-} 
+  }
 }
 
 module.exports = UserLogin;

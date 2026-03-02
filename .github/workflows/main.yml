@@ -33,8 +33,14 @@ jobs:
         run: npm ci
         working-directory: PlaywrightNPM
 
+      - name: Cache Playwright Browsers
+        uses: actions/cache@v4
+        with:
+          path: ~/.cache/ms-playwright
+          key: ${{ runner.os }}-playwright-${{ hashFiles('PlaywrightNPM/package-lock.json') }}
+
       - name: Install Playwright browsers
-        run: npx playwright install chromium
+        run: npx playwright install --with-deps chromium
         working-directory: PlaywrightNPM
 
       - name: Run Playwright Tests (Shard ${{ matrix.shard }})
@@ -86,10 +92,7 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: PlaywrightNPM/playwright-report
           publish_branch: gh-pages
-          force_orphan: true
-
-      - name: Wait for GitHub Pages to update
-        run: sleep 20    
+          force_orphan: true  
 
       - name: Send Playwright report via email
         uses: dawidd6/action-send-mail@v3

@@ -1,4 +1,4 @@
-import { test , expect} from '@playwright/test';
+import { test, expect } from '@playwright/test';
 import { urls } from '../../pages/commonfunction/url.js';
 
 const baseurl = urls.AUrl;

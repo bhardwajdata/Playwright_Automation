@@ -20,21 +20,22 @@ export default defineConfig({
   timeout: 90000,
   fullyParallel: true,      // retry failed tests on CI
   // workers: 3, 
-  workers: process.env.CI ? 3: 4,
+  workers: process.env.CI ? 3 : 4,
   /* Fail the build on CI if you accidentally left test.only in the source code. */
   forbidOnly: !!process.env.CI,
   /* Retry on CI only */
   retries: process.env.CI ? 2 : 0,
- 
+
   use: {
     // baseURL: 'http://localhost:3000',
     // headless: isCI ? true : false,        // headless in CI, GUI locally
     headless: true,
+    navigationTimeout: 40000,
     viewport: { width: 1280, height: 720 },
-    trace: 'on-first-retry',              
-    screenshot: 'only-on-failure',        
-    video: 'retain-on-failure',         
-    ignoreHTTPSErrors: true,  
+    trace: 'on-first-retry',
+    screenshot: 'only-on-failure',
+    video: 'retain-on-failure',
+    ignoreHTTPSErrors: true,
   },
 
   reporter: [
@@ -45,24 +46,24 @@ export default defineConfig({
   /* Configure projects for major browsers */
   projects: [
     {
-    name: 'chromium',
-    use: { browserName: 'chromium' },
-   // grep: /@chromium/,
-  },
-  
-  /*
-  {
-    name: 'firefox',
-    use: { browserName: 'firefox' },
-   // grep: /@firefox/,
-  },
-  
-  {
-    name: 'webkit',
-    use: { browserName: 'webkit' },
-  //  grep: /@webkit/,
-  },
-*/
+      name: 'chromium',
+      use: { browserName: 'chromium' },
+      // grep: /@chromium/,
+    },
+
+    /*
+    {
+      name: 'firefox',
+      use: { browserName: 'firefox' },
+     // grep: /@firefox/,
+    },
+    
+    {
+      name: 'webkit',
+      use: { browserName: 'webkit' },
+    //  grep: /@webkit/,
+    },
+  */
 
     /* Test against mobile viewports. */
     // {
