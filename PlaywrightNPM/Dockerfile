@@ -8,7 +8,7 @@ WORKDIR /PLAYWRIGHTNPM
 COPY package.json package-lock.json* ./
 
 # Install dependencies
-RUN npm install
+RUN npm ci
 
 # Copy all project files
 COPY . .
