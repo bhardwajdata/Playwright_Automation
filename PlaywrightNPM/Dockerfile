@@ -14,7 +14,7 @@ RUN npm install
 COPY . .
 
 # Install Playwright browsers
-RUN npx playwright install --with-deps
+RUN npx playwright install chromium
 
 # Run only runner.spec.js
 CMD ["npx", "playwright", "test", "tests/runner.spec.js"]
