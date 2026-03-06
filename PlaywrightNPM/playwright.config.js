@@ -48,22 +48,20 @@ export default defineConfig({
     {
       name: 'chromium',
       use: { browserName: 'chromium' },
-      // grep: /@chromium/,
     },
 
     /*
     {
       name: 'firefox',
       use: { browserName: 'firefox' },
-     // grep: /@firefox/,
     },
-    
+
     {
       name: 'webkit',
       use: { browserName: 'webkit' },
-    //  grep: /@webkit/,
     },
-  */
+    */
+
 
     /* Test against mobile viewports. */
     // {
