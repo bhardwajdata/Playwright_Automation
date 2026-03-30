@@ -34,7 +34,7 @@ jobs:
         working-directory: PlaywrightNPM
 
       - name: Cache Playwright Browsers
-        uses: actions/cache@v5
+        uses: actions/cache@v4
         with:
           path: ~/.cache/ms-playwright
           key: ${{ runner.os }}-playwright-${{ hashFiles('PlaywrightNPM/package-lock.json') }}
@@ -61,10 +61,10 @@ jobs:
 
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v5
+        uses: actions/checkout@v4
 
       - name: Setup Node
-        uses: actions/setup-node@v5
+        uses: actions/setup-node@v4
         with:
           node-version: lts/*
 
@@ -73,7 +73,7 @@ jobs:
         working-directory: PlaywrightNPM
 
       - name: Download all shard reports
-        uses: actions/download-artifact@v5
+        uses: actions/download-artifact@v4
         with:
           path: PlaywrightNPM/all-blob-reports
 
@@ -87,7 +87,7 @@ jobs:
         working-directory: PlaywrightNPM
 
       - name: Deploy to GitHub Pages
-        uses: peaceiris/actions-gh-pages@v5
+        uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: PlaywrightNPM/playwright-report
