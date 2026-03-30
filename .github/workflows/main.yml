@@ -20,10 +20,10 @@ jobs:
 
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
 
       - name: Setup Node
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v5
         with:
           node-version: lts/*
           cache: npm
@@ -34,22 +34,22 @@ jobs:
         working-directory: PlaywrightNPM
 
       - name: Cache Playwright Browsers
-        uses: actions/cache@v4
+        uses: actions/cache@v5
         with:
           path: ~/.cache/ms-playwright
           key: ${{ runner.os }}-playwright-${{ hashFiles('PlaywrightNPM/package-lock.json') }}
 
       - name: Install Playwright browsers
-        run: npx playwright install chromium
+        run: npx playwright install --deps chromium
         working-directory: PlaywrightNPM
 
       - name: Run Playwright Tests (Shard ${{ matrix.shard }})
-        run: npx playwright test runner*.spec.js --shard=${{ matrix.shard }}/3 --reporter=blob
+        run: npx playwright test --grep "@Regression" --shard=${{ matrix.shard }}/3 --reporter=blob
         working-directory: PlaywrightNPM
 
       - name: Upload Blob Report
         if: always()
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v5
         with:
           name: blob-report-${{ matrix.shard }}
           path: PlaywrightNPM/blob-report
@@ -61,10 +61,10 @@ jobs:
 
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@5
 
       - name: Setup Node
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@5
         with:
           node-version: lts/*
 
@@ -73,7 +73,7 @@ jobs:
         working-directory: PlaywrightNPM
 
       - name: Download all shard reports
-        uses: actions/download-artifact@v4
+        uses: actions/download-artifact@5
         with:
           path: PlaywrightNPM/all-blob-reports
 
@@ -87,7 +87,7 @@ jobs:
         working-directory: PlaywrightNPM
 
       - name: Deploy to GitHub Pages
-        uses: peaceiris/actions-gh-pages@v4
+        uses: peaceiris/actions-gh-pages@v5
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: PlaywrightNPM/playwright-report

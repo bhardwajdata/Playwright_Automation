@@ -1,9 +1,9 @@
-import {test, expect} from '@playwright/test';
+import { test, expect } from '@playwright/test';
 import { urls } from '../../pages/commonfunction/url.js';
 
 const baseurl = urls.BUrl;
 
-test.describe('Test Suite B', () => {
+test.describe('Test Suite B @Regression', () => {
     test('Test Case B1', async ({ page }) => {
         await page.goto(baseurl);
         const title = await page.title();

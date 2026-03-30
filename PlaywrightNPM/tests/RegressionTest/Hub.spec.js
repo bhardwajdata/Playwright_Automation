@@ -2,7 +2,7 @@ import { test, expect } from "@playwright/test";
 import { urls } from '../../pages/commonfunction/url.js';
 
 const baseurl = urls.HubUrl;
-test.describe("Hub Functionality", () => {
+test.describe("Hub Functionality @Regression", () => {
   test("Should display relevant results when searching for a product", async ({ page }) => {
 
     await page.goto(baseurl);

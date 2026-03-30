@@ -1,9 +1,9 @@
-import {test, expect} from '@playwright/test';
+import { test, expect } from '@playwright/test';
 import { urls } from '../../pages/commonfunction/url.js';
 
 const baseurl = urls.EUrl;
 
-test.describe('Test Suite E', () => {
+test.describe('Test Suite E @Regression', () => {
     test('Test Case E1', async ({ page }) => {
         await page.goto(baseurl);
         const title = await page.title();

@@ -3,7 +3,7 @@ import { urls } from '../../pages/commonfunction/url.js';
 
 const baseurl = urls.GUrl;
 
-test.describe('Test Suite G', () => {
+test.describe('Test Suite G @Regression', () => {
     test('Test Case G1', async ({ page }) => {
         await page.goto(baseurl, { waitUntil: 'domcontentloaded' });
         await page.waitForLoadState('networkidle');

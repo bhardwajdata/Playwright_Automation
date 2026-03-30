@@ -3,7 +3,7 @@ import { urls } from '../../pages/commonfunction/url.js';
 
 const baseurl = urls.AUrl;
 
-test.describe('Test Suite A', () => {
+test.describe('Test Suite A @Regression', () => {
 
     test('Test Case A1', async ({ page }) => {
         await page.goto(baseurl);
