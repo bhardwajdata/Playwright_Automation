@@ -40,7 +40,7 @@ jobs:
           key: ${{ runner.os }}-playwright-${{ hashFiles('PlaywrightNPM/package-lock.json') }}
 
       - name: Install Playwright browsers
-        run: npx playwright install --deps chromium
+        run: npx playwright install --with-deps chromium
         working-directory: PlaywrightNPM
 
       - name: Run Playwright Tests (Shard ${{ matrix.shard }})
