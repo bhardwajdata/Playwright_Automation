@@ -3,7 +3,7 @@ import { urls } from '../../pages/commonfunction/url.js';
 
 const baseurl = urls.QaUrl;
 
-test.describe("QA Search Functionality @Regression", () => {
+test.describe("QA Search Functionality @docker @Regression", () => {
   test("Should display relevant results when searching for a product", async ({ page }) => {
 
     await page.goto(baseurl);

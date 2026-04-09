@@ -1,5 +1,5 @@
 # Use official Playwright image
-FROM mcr.microsoft.com/playwright:v1.42.1-jammy
+FROM mcr.microsoft.com/playwright:v1.59.1-jammy
 
 # Set working directory
 WORKDIR /PLAYWRIGHTNPM
@@ -17,4 +17,4 @@ COPY . .
 RUN npx playwright install chromium
 
 # Run only runner.spec.js
-CMD ["npx", "playwright", "test", "tests/runner.spec.js"]
+CMD ["npx", "playwright", "test", "--grep", "@docker"]

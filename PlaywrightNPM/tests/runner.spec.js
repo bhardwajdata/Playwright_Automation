@@ -10,4 +10,9 @@
 // npx playwright test *testclass --headed --debug (to run the tests in headed mode and debug mode)
 // npx playwright codegen
 
+/*
+import './RegressionTest/Info.spec.js';
+import './RegressionTest/QA.spec.js';
+import './RegressionTest/Hub.spec.js';
 
+*/

@@ -1,6 +1,6 @@
-import { test, expect } from '@playwright/test'
+const { test, expect } = require('@playwright/test')
 
-test('Info Test', async ({ page, browser }) => {
+test('Info Test @docker', async ({ page, browser }) => {
     test.info().annotations.push({
         type: 'browser version',
         description: browser.version()
@@ -14,5 +14,7 @@ test('Info Test', async ({ page, browser }) => {
     await page.getByRole('link', { name: 'Sign in' }).click();
     await expect(page).toHaveURL(/login/);
     console.log("Git Login Page verified");
+
+
 
 });
