@@ -3,9 +3,10 @@ import { urls } from '../../pages/commonfunction/url.js';
 
 const baseurl = urls.HUrl;
 
-test.describe('Test Suite H @Regression', () => {
+test.describe('Test Suite H @h @Regression', () => {
+
     test('Test Case H1', async ({ page }) => {
-        await page.goto(baseurl);
+        await page.goto(baseurl, { waitUntil: 'domcontentloaded' });
         const title = await page.title();
         expect(title).toBe('Opera Web Browser | Faster, Safer, Smarter | Opera');
         console.log('Test Case H1 executed successfully');

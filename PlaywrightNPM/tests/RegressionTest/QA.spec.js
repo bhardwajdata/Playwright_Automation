@@ -1,25 +1,44 @@
 import { test, expect } from "@playwright/test";
 import { urls } from '../../pages/commonfunction/url.js';
+import { createNetworkGuard } from '../../network-guard';
 
 const baseurl = urls.QaUrl;
 
 test.describe("QA Search Functionality @docker @Regression", () => {
+  let networkGuard;
+
+  test.beforeEach(async ({ page }) => {
+    networkGuard = createNetworkGuard(page);
+  })
+
+  test.afterEach(async () => {
+    if (networkGuard) {
+      await networkGuard.dispose();
+      networkGuard = undefined;
+    }
+  })
+
   test("Should display relevant results when searching for a product", async ({ page }) => {
 
     await page.goto(baseurl);
+    await networkGuard.assertClean('DemoQA homepage loaded with bad network responses');
     await page.locator('div').filter({ hasText: /^Elements$/ }).nth(1).click();
     console.log("✅ DemoQA homepage loaded!");
+    await networkGuard.assertClean('DemoQA page loaded with bad network responses');
     await page.getByText('Radio Button').click();
     await expect(page.getByText('Do you like the site?')).toBeVisible();
     console.log("✅ Navigated to Radio Button section!");
+    await networkGuard.assertClean('DemoQA page loaded with bad network responses');
     await expect(page.getByText('Yes')).toBeVisible();
     await expect(page.getByText('Impressive')).toBeVisible();
     console.log("✅ Radio Button options are visible!");
     await expect(page.getByText('No')).toBeVisible();
     await page.getByText('Yes').click();
+    await networkGuard.assertClean('DemoQA page loaded with bad network responses');
     console.log("✅ 'Yes' Radio Button selected!");
     await expect(page.getByRole('paragraph')).toContainText('You have selected Yes');
     await page.getByText('Text Box').click();
+    await networkGuard.assertClean('DemoQA page loaded with bad network responses');
     console.log("✅ Navigated to Text Box section!");
     await expect(page.locator('#userName-label')).toContainText('Full Name');
     console.log("✅ Full Name label is visible!");
