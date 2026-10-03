@@ -1,0 +1,242 @@
+# Instructions
+
+- Following Playwright test failed.
+- Explain why, be concise, respect Playwright best practices.
+- Provide a snippet of code with the fix, if possible.
+
+# Test info
+
+- Name: RegressionTest/F.spec.js >> Test Suite F @f @Regression >> Test Case F1
+- Location: tests/RegressionTest/F.spec.js:21:9
+
+# Error details
+
+```
+Error: Network guard detected a blocked response: FAILED POST https://www.google-analytics.com/g/collect?v=2&tid=G-24XP4PG02H&gtm=45je69u2v9128943846za200zd9128943846xf1&_p=1791011386129&gcd=13l3l3l3l1l1&npa=0&dma=0&are=1&cid=2144533172.1791011386&frm=0&ngs=1&pscdl=noapi&rcb=10&sr=1280x720&uaa=x86&uab=64&uafvl=HeadlessChrome%3B147.0.7727.15%7CNot.A%252FBrand%3B8.0.0.0%7CChromium%3B147.0.7727.15&uam=&uamb=0&uap=Linux&uapv=&uaw=0&ul=en-us&_s=1&tag_exp=115938465~115938468~118897920~118897930~120213116~120385423~120469145~120469153~121046263~121046271&sid=1791011386&sct=1&seg=0&dl=https%3A%2F%2Fwww.chromium.org%2Fchromium-projects%2F&dt=Home&en=page_view&_fv=1&_nsi=1&_ss=1&_ee=1&tfd=453 (net::ERR_ABORTED)
+```
+
+# Page snapshot
+
+```yaml
+- generic [active] [ref=e1]:
+  - banner [ref=e2]:
+    - link "the Chromium logo The Chromium Projects" [ref=e3] [cursor=pointer]:
+      - /url: /
+      - img "the Chromium logo" [ref=e4]
+      - heading "The Chromium Projects" [level=2] [ref=e5]
+    - button "Search" [ref=e7] [cursor=pointer]:
+      - generic [ref=e8]:
+        - img [ref=e9]
+        - generic [ref=e11]: Search
+      - generic [ref=e12]:
+        - img [ref=e14]
+        - generic [ref=e16]: K
+  - generic [ref=e17]:
+    - navigation "Site navigation" [ref=e18]:
+      - generic [ref=e19]:
+        - link "Home" [ref=e20] [cursor=pointer]:
+          - /url: /chromium-projects
+        - link "Chromium" [ref=e21] [cursor=pointer]:
+          - /url: /Home
+        - link "ChromiumOS" [ref=e22] [cursor=pointer]:
+          - /url: /chromium-os
+      - generic [ref=e23]:
+        - heading "Quick links" [level=4] [ref=e24]
+        - link "Report bugs" [ref=e25] [cursor=pointer]:
+          - /url: /for-testers/bug-reporting-guidelines
+        - link "Discuss" [ref=e26] [cursor=pointer]:
+          - /url: /developers/discussion-groups
+      - generic [ref=e27]:
+        - heading "Other sites" [level=4] [ref=e28]
+        - link "Chromium Blog" [ref=e29] [cursor=pointer]:
+          - /url: https://blog.chromium.org/
+        - link "Google Chrome Extensions" [ref=e30] [cursor=pointer]:
+          - /url: https://developer.chrome.com/extensions
+      - complementary [ref=e31]:
+        - text: Except as otherwise
+        - link "noted" [ref=e32] [cursor=pointer]:
+          - /url: https://developers.google.com/site-policies.html#restrictions
+        - text: ", the content of this page is licensed under a"
+        - link "Creative Commons Attribution 2.5 license" [ref=e33] [cursor=pointer]:
+          - /url: https://creativecommons.org/licenses/by/2.5/
+        - text: ", and examples are licensed under the"
+        - link "BSD License" [ref=e34] [cursor=pointer]:
+          - /url: https://chromium.googlesource.com/chromium/src/+/HEAD/LICENSE
+        - text: .
+      - complementary [ref=e35]:
+        - link "Privacy" [ref=e36] [cursor=pointer]:
+          - /url: https://policies.google.com/privacy
+      - link "Edit" [ref=e37] [cursor=pointer]:
+        - /url: https://edit.chromium.org/edit?repo=chromium/website/main&file=site/chromium-projects/index.md&cloneRepo=chromium/website:refs/heads/main&fullPath=chromium/site/chromium-projects/index.md
+    - main [ref=e38]:
+      - paragraph [ref=e39]:
+        - text: The Chromium projects include Chromium and ChromiumOS, the open-source projects behind the
+        - link "Google Chrome" [ref=e40] [cursor=pointer]:
+          - /url: https://www.google.com/chrome
+        - text: browser and
+        - link "Google ChromeOS" [ref=e41] [cursor=pointer]:
+          - /url: https://chromeos.google/
+        - text: ", respectively. This site houses the documentation and code related tothe Chromium projects and is intended for developers interested in learning about and contributing to the open-source projects."
+      - generic [ref=e42]:
+        - generic [ref=e43]:
+          - heading "Chromium" [level=2] [ref=e44]:
+            - link:
+              - /url: "#chromium"
+            - link "Chromium" [ref=e45] [cursor=pointer]:
+              - /url: /Home
+          - paragraph [ref=e46]: Chromium is an open-source browser project that aims to build a safer, faster, and more stable way for all users to experience the web. This site contains design documents, architecture overviews, testing information, and more to help you learn to build and work with the Chromium source code.
+          - paragraph [ref=e47]:
+            - link [ref=e48] [cursor=pointer]:
+              - /url: https://www.google.com/chrome
+          - paragraph [ref=e49]: Looking for Google Chrome?
+          - paragraph [ref=e50]:
+            - link "Download Google Chrome" [ref=e51] [cursor=pointer]:
+              - /url: https://www.google.com/chrome
+        - generic [ref=e52]:
+          - heading "ChromiumOS" [level=2] [ref=e53]:
+            - link:
+              - /url: "#chromiumos"
+            - link "ChromiumOS" [ref=e54] [cursor=pointer]:
+              - /url: /chromium-os
+          - paragraph [ref=e55]:
+            - text: ChromiumOS is an open-source project that aims to provide a fast, simple, and more secure computing experience for people who spend most of their time on the web. Learn more about the
+            - link "project goals" [ref=e56] [cursor=pointer]:
+              - /url: https://googleblog.blogspot.com/2009/11/releasing-chromium-os-open-source.html
+            - text: ", obtain the latest build, and learn how you can get involved, submit code, and file bugs."
+          - paragraph [ref=e57]:
+            - link [ref=e58] [cursor=pointer]:
+              - /url: https://chromeos.google/
+          - paragraph [ref=e59]: Looking for Google ChromeOS?
+          - paragraph [ref=e60]:
+            - link "Visit the Google ChromeOS site" [ref=e61] [cursor=pointer]:
+              - /url: https://chromeos.google/
+```
+
+# Test source
+
+```ts
+  1   | function createNetworkGuard(page, options = {}) {
+  2   |   const ignoreUrlPatterns = options.ignoreUrlPatterns || [];
+  3   |   const logger = options.logger || console;
+  4   |   const shouldFailResponse =
+  5   |     options.shouldFailResponse ||
+  6   |     ((response) => {
+  7   |       const status = response.status();
+  8   |       return status === 403 || status === 404 || (status >= 500 && status <= 599);
+  9   |     });
+  10  | 
+  11  |   const failFast = options.failFast !== false;
+  12  |   const trackRequestFailed = options.trackRequestFailed !== false;
+  13  |   const failures = [];
+  14  |   let fatalError = null;
+  15  | 
+  16  |   const formatFailure = (entry) =>
+  17  |     entry.type === 'requestfailed'
+  18  |       ? `FAILED ${entry.method} ${entry.url} (${entry.errorText})`
+  19  |       : `${entry.status} ${entry.method} ${entry.url}`;
+  20  | 
+  21  |   const shouldIgnore = (url) =>
+  22  |     ignoreUrlPatterns.some((pattern) => {
+  23  |       if (pattern instanceof RegExp) {
+  24  |         return pattern.test(url);
+  25  |       }
+  26  | 
+  27  |       return String(url).includes(String(pattern));
+  28  |     });
+  29  | 
+  30  |   const throwIfNeeded = (entry) => {
+  31  |     if (!failFast || fatalError) {
+  32  |       return;
+  33  |     }
+  34  | 
+> 35  |     fatalError = new Error(
+      |                  ^ Error: Network guard detected a blocked response: FAILED POST https://www.google-analytics.com/g/collect?v=2&tid=G-24XP4PG02H&gtm=45je69u2v9128943846za200zd9128943846xf1&_p=1791011386129&gcd=13l3l3l3l1l1&npa=0&dma=0&are=1&cid=2144533172.1791011386&frm=0&ngs=1&pscdl=noapi&rcb=10&sr=1280x720&uaa=x86&uab=64&uafvl=HeadlessChrome%3B147.0.7727.15%7CNot.A%252FBrand%3B8.0.0.0%7CChromium%3B147.0.7727.15&uam=&uamb=0&uap=Linux&uapv=&uaw=0&ul=en-us&_s=1&tag_exp=115938465~115938468~118897920~118897930~120213116~120385423~120469145~120469153~121046263~121046271&sid=1791011386&sct=1&seg=0&dl=https%3A%2F%2Fwww.chromium.org%2Fchromium-projects%2F&dt=Home&en=page_view&_fv=1&_nsi=1&_ss=1&_ee=1&tfd=453 (net::ERR_ABORTED)
+  36  |       `Network guard detected a blocked response: ${entry.type === 'requestfailed' ? `FAILED ${entry.method} ${entry.url} (${entry.errorText})` : `${entry.status} ${entry.method} ${entry.url}`}`
+  37  |     );
+  38  | 
+  39  |     queueMicrotask(() => {
+  40  |       throw fatalError;
+  41  |     });
+  42  |   };
+  43  | 
+  44  |   const recordFailure = (entry) => {
+  45  |     failures.push(entry);
+  46  |     logger.error(`[network-guard] ${formatFailure(entry)}`);
+  47  |     throwIfNeeded(entry);
+  48  |   };
+  49  | 
+  50  |   const onResponse = (response) => {
+  51  |     const url = response.url();
+  52  | 
+  53  |     if (shouldIgnore(url)) {
+  54  |       return;
+  55  |     }
+  56  | 
+  57  |     if (shouldFailResponse(response)) {
+  58  |       recordFailure({
+  59  |         type: 'response',
+  60  |         status: response.status(),
+  61  |         method: response.request().method(),
+  62  |         url,
+  63  |       });
+  64  |     }
+  65  |   };
+  66  | 
+  67  |   const onRequestFailed = (request) => {
+  68  |     if (!trackRequestFailed) {
+  69  |       return;
+  70  |     }
+  71  | 
+  72  |     const url = request.url();
+  73  | 
+  74  |     if (shouldIgnore(url)) {
+  75  |       return;
+  76  |     }
+  77  | 
+  78  |     recordFailure({
+  79  |       type: 'requestfailed',
+  80  |       status: 'FAILED',
+  81  |       method: request.method(),
+  82  |       url,
+  83  |       errorText: request.failure()?.errorText || 'Request failed',
+  84  |     });
+  85  |   };
+  86  | 
+  87  |   page.on('response', onResponse);
+  88  |   page.on('requestfailed', onRequestFailed);
+  89  | 
+  90  |   async function assertClean(context = 'Network guard detected bad responses') {
+  91  |     if (!failures.length) {
+  92  |       return;
+  93  |     }
+  94  | 
+  95  |     const details = failures
+  96  |       .map((failure) => `- ${formatFailure(failure)}`)
+  97  |       .join('\n');
+  98  | 
+  99  |     throw new Error(`${context}\n${details}`);
+  100 |   }
+  101 | 
+  102 |   async function dispose() {
+  103 |     page.off('response', onResponse);
+  104 |     page.off('requestfailed', onRequestFailed);
+  105 |   }
+  106 | 
+  107 |   return {
+  108 |     assertClean,
+  109 |     dispose,
+  110 |     failures,
+  111 |   };
+  112 | }
+  113 | 
+  114 | async function safeGoto(page, networkGuard, url, options = {}, context) {
+  115 |   await page.goto(url, options);
+  116 |   await networkGuard.assertClean(context || `Blocked network responses found while loading ${url}`);
+  117 | }
+  118 | 
+  119 | module.exports = {
+  120 |   createNetworkGuard,
+  121 |   safeGoto,
+  122 | };
+  123 | 
+```
